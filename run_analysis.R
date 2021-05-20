@@ -4,17 +4,10 @@ library(Hmisc)
 library(data.table)
 
 #training Data
-x_train<-read.table("C:/Users/heman/Desktop/Coursera/JHU data science/Getting and cleaning data/
-                    getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt", 
-                    header=FALSE)
-y_train<-read.table("C:/Users/heman/Desktop/Coursera/JHU data science/Getting and cleaning data/
-                    getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt", 
-                    header=FALSE)
-sub_train<-read.table("C:/Users/heman/Desktop/Coursera/JHU data science/Getting and cleaning data/
-                      getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt", 
-                      header=FALSE)
-feat<-read.table("C:/Users/heman/Desktop/Coursera/JHU data science/Getting and cleaning data
-                 /getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/features.txt", 
+x_train<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt", header=FALSE)
+y_train<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt", header=FALSE)
+sub_train<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt", header=FALSE)
+feat<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/features.txt", 
                  header=FALSE)
 colnames(x_train)<-feat[,2]
 colnames(y_train)<-"activityLabel"
@@ -27,15 +20,9 @@ sub2<-select(train, ind_sd)
 merged_train<-cbind(sub1,sub2)
 
 #test Data C/:Users/heman/Desktop/Coursera/JHU data science/Getting and cleaning data/
-x_test<-read.table("C:/Users/heman/Desktop/Coursera/JHU data science/Getting and cleaning data/
-                   getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt", 
-                   header=FALSE)
-y_test<-read.table("C:/Users/heman/Desktop/Coursera/JHU data science/Getting and cleaning data/
-                   getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt", 
-                   header=FALSE)
-sub_test<-read.table("C:/Users/heman/Desktop/Coursera/JHU data science/Getting and cleaning data/
-                     getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt", 
-                     header=FALSE)
+x_test<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt", header=FALSE)
+y_test<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt", header=FALSE)
+sub_test<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt", header=FALSE)
 colnames(x_test)<-feat[,2]
 colnames(y_test)<-"activityLabel"
 colnames(sub_test)<-"subjectID"

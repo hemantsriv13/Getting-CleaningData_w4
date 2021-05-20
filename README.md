@@ -1,4 +1,5 @@
 # Getting-CleaningData_w4
+
 The week 4 programming assignment for the JHU Coursera Data Science specialization course - Getting and Cleaning data
 
 The repository includes the following files:

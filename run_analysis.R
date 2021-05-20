@@ -7,8 +7,7 @@ library(data.table)
 x_train<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt", header=FALSE)
 y_train<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt", header=FALSE)
 sub_train<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/train/subject_train.txt", header=FALSE)
-feat<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/features.txt", 
-                 header=FALSE)
+feat<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/features.txt", header=FALSE)
 colnames(x_train)<-feat[,2]
 colnames(y_train)<-"activityLabel"
 colnames(sub_train)<-"subjectID"
@@ -19,7 +18,7 @@ sub1<-select(train,1,2, ind_mean)
 sub2<-select(train, ind_sd)
 merged_train<-cbind(sub1,sub2)
 
-#test Data C/:Users/heman/Desktop/Coursera/JHU data science/Getting and cleaning data/
+#test Data 
 x_test<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt", header=FALSE)
 y_test<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt", header=FALSE)
 sub_test<-read.table("./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset/test/subject_test.txt", header=FALSE)
@@ -52,4 +51,4 @@ merged_set$activityLabel<-gsub("6", "LAYING",merged_set$activityLabel)
 
 #another Tidy data set with average of each value for each subject and each activity
 tidy_dataset<-aggregate(.~subjectID+activityLabel, merged_set, mean, na.rm=TRUE)
-write.table(tidy_dataset,"tidy_dataset.txt", row.names = TRUE)
+write.table(tidy_dataset,"tidy_dataset.txt", row.names = FALSE)
